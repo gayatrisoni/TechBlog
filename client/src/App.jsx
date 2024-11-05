@@ -1,26 +1,69 @@
 import React, {useState} from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Home from './pages/Home'
-import Search from './components/Search'
-import Header from './components/Header'
-import IntroPost from './components/IntroPost'
-import Blogs from './components/Blogs'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import SingleBlog from './pages/SingleBlog'
+import BlogUpdate from './pages/BlogUpdate'
+import NavBar from './components/NavBar'
 import Footer from './components/Footer'
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Outlet,
+} from "react-router-dom";
+
+const Layout = () => {
+  return (
+    <>
+      <NavBar/>
+      <Outlet/>
+      <Footer/>
+    </>
+  )
+}
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout/>,
+    children : [
+      {
+        path: "/",
+        element: <Home/>
+      },
+      {
+        path: "/post/:id",
+        element: <SingleBlog/>
+      },
+      {
+        path: "/update-blog",
+        element: <BlogUpdate/>
+      }
+    ]
+  },
+  {
+    path: "/register",
+    element: <Register/>
+  },
+  {
+    path: "/login",
+    element: <Login/>
+  },
+  
+]);
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-     
-      
-      <Header/>
-      <Search/>
-      <IntroPost/>
-      <Blogs/>
-      <Footer/>
+    <div className='p-10   '>
+      <div >
+        <RouterProvider router={router}/>
+      </div>
+    </div>
     </>
   )
 }

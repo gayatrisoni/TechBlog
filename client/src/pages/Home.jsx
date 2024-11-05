@@ -1,10 +1,10 @@
 import React from 'react'
+import Search from '../components/Search'
 
 const Home = () => {
   return (
-    <div>
-        Home
-      
+    <div className='flex flex-col  justify-center items-center'>
+      <Search/>
     </div>
   )
 }
