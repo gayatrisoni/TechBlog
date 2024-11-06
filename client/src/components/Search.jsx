@@ -32,7 +32,7 @@ const Search = () => {
           </div>
           <div className='flex gap-10 justify-center mt-5'>
             {tages.map((item, index)=> (
-              <ul onClick={()=>setActiveIndex(index)} className={`${index===activeIndex? 'bg-red-500 text-white ': null} px-2 rounded-sm md:rounded-full cursor-pointer ` }>
+              <ul onClick={()=>setActiveIndex(index)} className={`${index===activeIndex? 'bg-red-500 text-white ': null} px-2 rounded-sm md:rounded-full cursor-pointer hover:scale-110 hover:border-[1px] border-red-500 transition-all duration-100 ease-in-out` }>
                 <li>{item.name}</li>
               </ul>
             ))}
